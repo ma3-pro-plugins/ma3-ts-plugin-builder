@@ -1,7 +1,10 @@
-# grandMA3 TypeScrip build plugin script
+# grandMA3 TypeScript Plugin Build Script
 
 This is a cli build script for building grandMA3 plugins that are written in TypeScript.
-It uses tstl TypescriptToLua.
+
+The script uses:
+- Node.js 16+
+- TSTL [TypeScriptToLua](https://typescripttolua.github.io)
 
 The build script features are:
 
