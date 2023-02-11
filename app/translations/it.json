@@ -2,8 +2,8 @@
 	"contributions": {
 		"language": "Italian",
 		"license": "CC BY 4.0",
-		"contributors": ["Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)"]
+		"contributors": ["Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>"]
 	},
-	"app_name": "node-cli-boilerplate",
+	"app_name": "ma3_ts_plugin_build",
 	"hello": "Ciao {{name}}!"
 }

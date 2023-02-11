@@ -11,7 +11,7 @@ module.exports = {
 	debug: "disabled",
 
 	// LOGS
-	// See: https://github.com/ptkdev/ptkdev-logger
+	// See: https://github.com/ma3-pro-plugins/build_plugin/ptkdev-logger
 	logger: {
 		path: {
 			debug_log: "./logs/debug.log",

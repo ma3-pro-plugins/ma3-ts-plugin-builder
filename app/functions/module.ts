@@ -4,7 +4,7 @@
  *
  * Show hello world text
  *
- * @contributors: Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)
+ * @contributors: Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>
  *
  * @license: MIT License
  *
@@ -15,9 +15,9 @@ import type { ModuleInterface, ModuleResponseInterface } from "@app/types/module
  * Hello World
  * =====================
  *
- * Print hello-world, run with: npx @ptkdev/node-cli-boilerplate
+ * Print hello-world, run with: npx @ma3-pro-plugins/ma3_ts_plugin_build
  *
- * @interface [ModuleInterface ModuleResponseInterface](https://github.com/ptkdev-boilerplate/node-cli-boilerplate/blob/main/app/types/module.interfaces.ts)
+ * @interface [ModuleInterface ModuleResponseInterface](https://github.com/ma3-pro-plugins/build_plugin/blob/main/app/types/module.interfaces.ts)
  *
  * @param {string} {text} - input string
  *

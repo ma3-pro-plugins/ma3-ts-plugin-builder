@@ -4,7 +4,7 @@
  * =====================
  * Command Line Interface
  *
- * @contributors: Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)
+ * @contributors: Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>
  *
  * @license: MIT License
  *
