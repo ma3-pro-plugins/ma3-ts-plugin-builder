@@ -3,11 +3,11 @@
 	"package_org": "@ma3-pro-plugins",
 	"display_name": "grandMA3 Typescript Plugin Build Script",
 	"description": "grandMA3 Typescript plugin build script",
-	"author": "Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>",
+	"author": "Erez Makavy [@hepiyellow] <hepiyellow@gmail.com>",
 	"author_markdown": "[Erez Makavy] ([@hepiyellow] <[hepi@ma3-pro-plugins.com](mailto:hepi@ma3-pro-plugins.com)>",
 	"author_url": "https://ma3-pro-plugins.com",
 	"github_nickname": "hepiyellow",
 	"github_repository_url": "github.com/ma3-pro-plugins/build_plugin",
 	"github_full_repository_url": "github.com/ma3-pro-plugins/build_plugin",
-	"email": "hepi@ma3-pro-plugin.com"
+	"email": "hepiyellow@gmail.com"
 }

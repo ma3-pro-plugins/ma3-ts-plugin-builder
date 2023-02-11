@@ -1,49 +1,42 @@
-/**
- * Node Module (Library) Boilerplate
- * =====================
- *
- * Create your node module (library) with this user friendly boilerplate. Use this respository as template for your new node library/module
- *
- * @contributors: Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>
- *
- * @license: MIT License
- *
- */
+export type EnvType = "prod" | "dev";
 
-/**
- * ModuleInterface
- * =====================
- *
- */
+export type ComponentData = {
+	type: "ts" | "lua";
+	fileName: string;
+};
+export type MAConfig = {
+	/** e.g. "/Users/[user]/MALightingTechnology/" */
+	maInstallPath: string;
+	/** e.g. "1.8.8" */
+	maVersion: string;
+	author: string;
+	organizationId: string;
+	/** usually a lowercase plugin name with underscores instead of spaces */
+	pluginId: string;
+	pluginVersion: string;
+	/** No dots allowed */
+	maPluginName: string;
+	components: ComponentData[];
+
+	/** MA version : 1.6, 1.8 when running dev mode */
+	devMATargetVersion: string;
+};
+
+export type BuildConfig = {
+	readMeTemplatePath?: string;
+};
+
+export type ScriptArgs = {
+	pluginFolderPath: string;
+	isDev: boolean;
+	maTargetVersion: string;
+};
 export interface ModuleInterface {
-	/**
-	 * Input text
-	 * =====================
-	 * Set text
-	 *
-	 * @interface [ModuleInterface](https://github.com/ma3-pro-plugins/build_plugin/blob/main/app/types/module.interfaces.ts)
-	 *
-	 * @param { String } text - input text
-	 *
-	 */
-	text: string;
+	maconfig: MAConfig;
+	buildConfig: BuildConfig;
+	scriptArgs: ScriptArgs;
 }
 
-/**
- * ModuleResponseInterface
- * =====================
- *
- */
 export interface ModuleResponseInterface {
-	/**
-	 * Output text
-	 * =====================
-	 * Get text
-	 *
-	 * @interface [ModuleResponseInterface](https://github.com/ma3-pro-plugins/build_plugin/blob/main/app/types/module.interfaces.ts)
-	 *
-	 * @return {fn} string - run app() for output text
-	 *
-	 */
-	app(): string;
+	build: () => Promise<string>;
 }

@@ -9,13 +9,24 @@
  * @license: MIT License
  *
  */
-import m from "@app/functions/module";
-import translate from "@translations/translate";
-import logger from "@app/utils/logger";
+import { Builder } from "@app/functions/builder";
+import { ScriptArgs } from "@app/types/module.interfaces";
+import * as fs from "node:fs";
 
 (async () => {
-	const label = translate("hello", { name: "World" }); // This show "Hello World"! Is a literal template string from en.json
-	const { app } = await m({ text: label });
+	const scriptArgs: ScriptArgs = {
+		pluginFolderPath: "./",
+		isDev: process.argv[2] === "dev",
+		maTargetVersion: "1.8",
+	};
 
-	logger.info(app());
+	const maconfigJson = JSON.parse(fs.readFileSync(`${scriptArgs.pluginFolderPath}maconfig.json`).toString());
+	const buildconfigJson = JSON.parse(fs.readFileSync(`${scriptArgs.pluginFolderPath}buildconfig.json`).toString());
+	const builder = Builder({
+		maconfig: maconfigJson,
+		buildConfig: buildconfigJson,
+		scriptArgs,
+	});
+
+	await builder.build();
 })();

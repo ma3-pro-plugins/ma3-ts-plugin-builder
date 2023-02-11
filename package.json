@@ -25,7 +25,7 @@
 		"url": "https://github.com/ma3-pro-plugins/build_plugin/issues"
 	},
 	"engines": {
-		"node": ">=14.0.0"
+		"node": ">=16.17.1"
 	},
 	"scripts": {
 		"setup": "ts-node --skip-project scripts/setup.ts && ts-node --skip-project scripts/changelog.ts && npm run pre-commit",
@@ -59,10 +59,16 @@
 		"prepare": "ts-patch install -s && husky install"
 	},
 	"dependencies": {
-		"@ptkdev/logger": "^1.8.0"
+		"@ptkdev/logger": "^1.8.0",
+		"archiver": "^5.3.1",
+		"fs-extra": "^11.1.0",
+		"md-to-pdf": "^5.2.1",
+		"template-file": "^6.0.1"
 	},
 	"devDependencies": {
 		"@ptkdev/all-shields-cli": "^2.0.2",
+		"@types/archiver": "^5.3.1",
+		"@types/fs-extra": "^11.0.1",
 		"@types/jest": "^27.4.1",
 		"@types/node": "^17.0.23",
 		"@types/shelljs": "^0.8.11",
@@ -90,30 +96,10 @@
 		"yargs": "^17.4.0"
 	},
 	"keywords": [
-		"ptkdev",
-		"npm-library",
-		"make-npm-library",
-		"create-npm-library",
-		"npm-module-sample",
-		"npx-example",
-		"npx-cli",
-		"node",
-		"node-module",
-		"node-library",
-		"node-cli",
-		"node-cli-bolerplate",
-		"node-line-interface",
-		"node-cmd",
-		"npx",
-		"node-command-line",
-		"npm-library",
-		"npm-cli",
-		"npm-cli-bolerplate",
-		"npm-line-interface",
-		"npm-command-line",
-		"command-line-tool",
-		"boilerplate",
-		"github-template"
+		"grandma",
+		"grandma3",
+		"ma3",
+		"plugin"
 	],
 	"contributors": []
 }

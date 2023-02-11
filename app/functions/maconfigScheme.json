@@ -1,0 +1,63 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://hepi_lighting.com/ma_plugin_config_v1.schema.json",
+	"title": "Plugin Build Config",
+	"description": "Build configuration for MA3 plugins",
+	"type": "object",
+	"properties": {
+		"author": {
+			"description": "Plugin author",
+			"type": "string"
+		},
+		"organizationId": {
+			"description": "Organization ID, used together with pluginId and version to create a combined-plugin-id. Should not include spaces of dots (.)",
+			"type": "string"
+		},
+		"pluginId": {
+			"description": "Plugin ID, used together with organizationId and version to create a combined-plugin-id. Should not include spaces of dots (.)",
+			"type": "string"
+		},
+		"pluginVersion": {
+			"description": "Plugin version. Dot separated 3 or 4 parts.",
+			"type": "string"
+		},
+		"maVersion": {
+			"description": "MA3 version. Used in the plugin XML",
+			"type": "string"
+		},
+		"maPluginName": {
+			"description": "Plugin Display Name. Used in the plugin XML, and will be displayed to the user.",
+			"type": "string"
+		},
+		"pluginFolderName": {
+			"description": "Plugin foder name. Used together with organizationId, to create the maPluginFolder which is used in the plugin XML",
+			"type": "string"
+		},
+		"components": {
+			"description": "Plugin code components.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"description": "lua | ts",
+						"type": "string"
+					},
+					"fileName": {
+						"description": "File name",
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"required": [
+		"organizationId",
+		"pluginId",
+		"pluginVersion",
+		"maVersion",
+		"maPluginName",
+		"pluginFolderName",
+		"components"
+	]
+}
