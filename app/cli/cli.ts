@@ -9,7 +9,7 @@
  * @license: MIT License
  *
  */
-import { Builder } from "@app/functions/builder";
+import { Builder } from "@app/builder/builder";
 import { ScriptArgs } from "@app/types/module.interfaces";
 import * as fs from "node:fs";
 

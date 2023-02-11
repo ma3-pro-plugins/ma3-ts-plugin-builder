@@ -1,9 +1,0 @@
-{
-	"contributions": {
-		"language": "English",
-		"license": "CC BY 4.0",
-		"contributors": ["Erez Makavy [@hepiyellow] <hepi@ma3-pro-plugins.com>"]
-	},
-	"app_name": "ma3_ts_plugin_build",
-	"hello": "Hello {{name}}!"
-}
