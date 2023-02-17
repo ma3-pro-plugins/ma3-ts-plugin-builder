@@ -4,6 +4,7 @@ import * as path from "path";
 import { Config } from "./config";
 
 export function convertImagesToBase64(config: Config) {
+	log.info(`convertImagesToBase64`);
 	const sourceFolder = "./src/images/";
 	if (!fs.existsSync(sourceFolder)) {
 		return;

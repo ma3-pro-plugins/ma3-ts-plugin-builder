@@ -23,6 +23,7 @@ export type MAConfig = {
 };
 
 export type BuildConfig = {
+	tstlPluginPath: string;
 	readMeTemplatePath?: string;
 };
 

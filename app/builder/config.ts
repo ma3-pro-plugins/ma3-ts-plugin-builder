@@ -40,7 +40,7 @@ export function createBaseConfig(maconfig: MAConfig, scriptArgs: ScriptArgs) {
 		pluginFolderNameWithVersion,
 		pluginFSNameWithAuthorAndVersion,
 		pluginName: maPluginName,
-		relativePathToRoot: `../../`,
+		relativePathToRoot: `./`,
 		srcPath: "./src/",
 		versionSuffix,
 	};

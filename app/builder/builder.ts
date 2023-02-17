@@ -75,7 +75,7 @@ export const Builder: BuilderFn = ({ maconfig, buildConfig, scriptArgs }) => {
 			const comp = getTSComponent();
 			if (comp != undefined) {
 				const entryConfig = createEntryConfig(comp.fileName, config);
-				generateTSConfig(`./src/${comp.fileName}`, config, entryConfig);
+				generateTSConfig(`./src/${comp.fileName}`, config, entryConfig, buildConfig);
 			}
 			generateXml(maconfig, config);
 			copyAssets(config);
@@ -94,7 +94,7 @@ export const Builder: BuilderFn = ({ maconfig, buildConfig, scriptArgs }) => {
 				convertImagesToBase64(config);
 				if (comp != undefined) {
 					const entryConfig = createEntryConfig(comp.fileName, config);
-					generateTSConfig(`./src/${comp.fileName}`, config, entryConfig);
+					generateTSConfig(`./src/${comp.fileName}`, config, entryConfig, buildConfig);
 					// transpile(config)
 					runTstl("tsconfig.json");
 				}
