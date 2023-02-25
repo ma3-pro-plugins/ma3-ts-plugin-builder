@@ -26,7 +26,7 @@ export function generateTSConfig(
       { "name": "${config.relativePathToRoot}${buildConfig.tstlPluginPath}" }
     ],
     "sourceMapTraceback": true,
-    "noResolvePaths": ["json", "lfs"]
+    "noResolvePaths": ["json", "lfs", "socket"]
   }
 }
     `;
