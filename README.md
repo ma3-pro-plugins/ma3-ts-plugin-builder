@@ -1,17 +1,15 @@
 # grandMA3 TypeScript Plugin Build Script
 
-## UNDER CONSTRUCTION !!!
-
-> This tool is not working yet !
-
 This is a cli build script for building grandMA3 plugins that are written in TypeScript.
 
-The script uses:
+> See [ma3-ts-plugin-template](https://github.com/ma3-pro-plugins/ma3-ts-plugin-template) for an example of a plugin that uses this build script.
+>
+> The script uses:
 
 -   Node.js 16+
 -   TSTL [TypeScriptToLua](https://typescripttolua.github.io)
 
-The build script features are:
+## Features
 
 -   Prod & Dev builds
 -   Generate plugin XML file
