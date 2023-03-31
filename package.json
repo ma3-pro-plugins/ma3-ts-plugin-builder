@@ -1,12 +1,12 @@
 {
-	"name": "@ma3-pro-plugins/ma3_ts_plugin_build",
+	"name": "@ma3-pro-plugins/ma3-ts-plugin-build",
 	"displayName": "grandMA3 Typescript Plugin Build Script",
 	"description": "grandMA3 Typescript plugin build script",
 	"version": "1.1.0",
 	"main": "dist/cli/cli.js",
 	"bin": {
-		"ma3_ts_plugin_build": "dist/cli/cli.js",
-		"@ma3-pro-plugins/ma3_ts_plugin_build": "dist/cli/cli.js"
+		"ma3-ts-plugin-build": "dist/cli/cli.js",
+		"@ma3-pro-plugins/ma3-ts-plugin-build": "dist/cli/cli.js"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -16,13 +16,13 @@
 	"license-docs": "CC BY 4.0",
 	"license-translations": "CC BY 4.0",
 	"license-images": "CC BY-NC 4.0",
-	"homepage": "https://github.com/ma3-pro-plugins/build_plugin",
+	"homepage": "https://github.com/ma3-pro-plugins/ma3-ts-plugin-build",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ma3-pro-plugins/build_plugin.git"
+		"url": "https://github.com/ma3-pro-plugins/ma3-ts-plugin-build.git"
 	},
 	"bugs": {
-		"url": "https://github.com/ma3-pro-plugins/build_plugin/issues"
+		"url": "https://github.com/ma3-pro-plugins/ma3-ts-plugin-build/issues"
 	},
 	"engines": {
 		"node": ">=16.17.1"
@@ -31,7 +31,7 @@
 		"setup": "ts-node --skip-project scripts/setup.ts && ts-node --skip-project scripts/changelog.ts && npm run pre-commit",
 		"start": "npm run git-hash && node dist/cli/cli.js",
 		"link": "npm link",
-		"unlink": "npm unlink @ma3-pro-plugins/ma3_ts_plugin_build",
+		"unlink": "npm unlink @ma3-pro-plugins/ma3-ts-plugin-build",
 		"dev": "npm run git-hash && ts-node scripts/configs.ts && ts-node scripts/rmdist.ts && ts-node scripts/debug.ts --enable && nodemon --exec 'ts-node app/cli/cli.ts'",
 		"build": "ts-node scripts/configs.ts && ts-node scripts/rmdist.ts && ts-node scripts/debug.ts --disable && tsc",
 		"release": "npm run git-hash && npm run build && tsc --declaration --emitDeclarationOnly",
@@ -40,7 +40,7 @@
 		"lint": "npm run lint-prettify && eslint . --cache --ext .ts,.js",
 		"lint-fix": "npm run lint-prettify && eslint . --cache --ext .ts,.js --fix",
 		"lint-prettify": "prettier --write --ignore-unknown '**/*.{ts,md,json}'",
-		"git-set-upstream": "git remote add upstream git@github.com:ptkdev-boilerplate/ma3_ts_plugin_build.git && git fetch upstream",
+		"git-set-upstream": "git remote add upstream git@github.com:ptkdev-boilerplate/ma3-ts-plugin-build.git && git fetch upstream",
 		"git-pull-upstream": "git pull upstream main && git pull upstream beta && git pull upstream nightly",
 		"git-pull": "git pull --recursive",
 		"git-hash": "ts-node scripts/githash.ts",
