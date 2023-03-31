@@ -20,10 +20,11 @@ export function generateXml(maconfig: MAConfig, config: Config) {
 		return s;
 	}
 
+	const searchRegDot = /\./g;
 	const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <GMA3 DataVersion="${maconfig.maVersion}">
-<${maTargetVersion === "1.8" ? "UserPlugin" : "Plugin"} Name="${pluginLabel} v${pluginVersion.replaceAll(
-		".",
+<${maTargetVersion === "1.8" ? "UserPlugin" : "Plugin"} Name="${pluginLabel} v${pluginVersion.replace(
+		searchRegDot,
 		"_",
 	)}" Version="${pluginVersion}" Author="${config.author || ""}" path="${config.maPluginPath}">
 ${createComponents(maconfig.components)}
