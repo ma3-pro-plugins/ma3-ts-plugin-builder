@@ -5,8 +5,6 @@ export type ComponentData = {
 	fileName: string;
 };
 export type MAConfig = {
-	/** e.g. "/Users/[user]/MALightingTechnology/" */
-	maInstallPath: string;
 	/** e.g. "1.8.8" */
 	maVersion: string;
 	author: string;
@@ -30,6 +28,8 @@ export type BuildConfig = {
 	pluginFolderPath: string;
 	isDev: boolean;
 	maTargetVersion: string;
+	/** e.g. on Mac: "/Users/[user]/MALightingTechnology/" */
+	maInstallPath: string;
 };
 
 export type ScriptArgs = {

@@ -14,7 +14,7 @@ export function createBaseConfig(maconfig: MAConfig, buildConfig: BuildConfig) {
 			process.exit();
 		}
 	}
-	const maPluginsInstallPath = path.join(maconfig.maInstallPath, "gma3_library/datapools/plugins/");
+	const maPluginsInstallPath = path.join(buildConfig.maInstallPath, "gma3_library/datapools/plugins/");
 	const { maPluginName, pluginVersion } = maconfig;
 	assertThrow(pluginVersion, "macofig.json missing 'pluginVersion' property");
 	const versionSuffix = `v${maconfig.pluginVersion}`;
