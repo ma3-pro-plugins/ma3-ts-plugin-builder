@@ -24,7 +24,12 @@ export type MAConfig = {
 
 export type BuildConfig = {
 	tstlPluginPath: string;
+	/** Absolute dist path */
+	distPath: string;
 	readMeTemplatePath?: string;
+	pluginFolderPath: string;
+	isDev: boolean;
+	maTargetVersion: string;
 };
 
 export type ScriptArgs = {
@@ -35,7 +40,7 @@ export type ScriptArgs = {
 export interface ModuleInterface {
 	maconfig: MAConfig;
 	buildConfig: BuildConfig;
-	scriptArgs: ScriptArgs;
+	// scriptArgs: ScriptArgs;
 }
 
 export interface ModuleResponseInterface {

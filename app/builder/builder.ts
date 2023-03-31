@@ -12,7 +12,7 @@ import { runTstl, runTstlWatch } from "./tstlRunner";
 import { createMultiVersionZip } from "./zipCreator";
 
 type BuilderFn = (params: ModuleInterface) => ModuleResponseInterface;
-export const Builder: BuilderFn = ({ maconfig, buildConfig, scriptArgs }) => {
+export const Builder: BuilderFn = ({ maconfig, buildConfig }) => {
 	const build = async () => {
 		try {
 			await doBuild();
@@ -57,10 +57,10 @@ export const Builder: BuilderFn = ({ maconfig, buildConfig, scriptArgs }) => {
 	}
 
 	async function doBuild() {
-		const baseConfig = createBaseConfig(maconfig, scriptArgs);
+		const baseConfig = createBaseConfig(maconfig, buildConfig);
 		if (baseConfig.isDev) {
-			log.info(`Starting DEV build for maVersion ${scriptArgs.maTargetVersion}`);
-			const config = createConfig(baseConfig, scriptArgs.maTargetVersion);
+			log.info(`Starting DEV build for maVersion ${buildConfig.maTargetVersion}`);
+			const config = createConfig(baseConfig, buildConfig.maTargetVersion);
 			log.info("buildPlugin: DEV");
 			let numOfTSComponents = 0;
 			for (const comp of maconfig.components) {
@@ -105,8 +105,9 @@ export const Builder: BuilderFn = ({ maconfig, buildConfig, scriptArgs }) => {
 
 			// Create Plugin MultiVersion Zip
 			log.info("Create MultiVersion Zip File");
-			await createMultiVersionZip(baseConfig, buildConfig, scriptArgs);
+			await createMultiVersionZip(baseConfig, buildConfig);
 
+			log.info("Install plugin to local MALightingTechnology folder");
 			// Install (Copy plugin to .../gma3_library/datapools/plugins/)
 			for (const maTargetVersion of maTargetVersions) {
 				const config = createConfig(baseConfig, maTargetVersion);

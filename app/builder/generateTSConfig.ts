@@ -34,19 +34,19 @@ export function generateTSConfig(
 	fs.writeFileSync(tsconfigFilePath, tsconfigContent, { encoding: `utf8` });
 	log.debug(`Written ${tsconfigFilePath}`);
 
-	const tsconfigBaseContent = `{
-  "compilerOptions": {
-    "target": "esnext",
-    "lib": ["esnext"],
-    "moduleResolution": "node",
-    "types": ["lua-types/5.3"],
-    "strict": true,
-    "baseUrl": "."
-  }
-}
-`;
+	// 	const tsconfigBaseContent = `{
+	//   "compilerOptions": {
+	//     "target": "esnext",
+	//     "lib": ["esnext"],
+	//     "moduleResolution": "node",
+	//     "types": ["lua-types/5.3"],
+	//     "strict": true,
+	//     "baseUrl": "."
+	//   }
+	// }
+	// `;
 
-	const tsconfigBaseFilePath = path.join(config.pluginFolderPath, `${BASE_TSCONFIG_FILE_NAME}.json`);
-	fs.writeFileSync(tsconfigBaseFilePath, tsconfigBaseContent, { encoding: `utf8` });
-	log.debug(`Written ${tsconfigBaseFilePath}`);
+	// 	const tsconfigBaseFilePath = path.join(config.pluginFolderPath, `${BASE_TSCONFIG_FILE_NAME}.json`);
+	// 	fs.writeFileSync(tsconfigBaseFilePath, tsconfigBaseContent, { encoding: `utf8` });
+	// 	log.debug(`Written ${tsconfigBaseFilePath}`);
 }

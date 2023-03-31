@@ -24,8 +24,7 @@ import * as fs from "node:fs";
 	const buildconfigJson = JSON.parse(fs.readFileSync(`${scriptArgs.pluginFolderPath}buildconfig.json`).toString());
 	const builder = Builder({
 		maconfig: maconfigJson,
-		buildConfig: buildconfigJson,
-		scriptArgs,
+		buildConfig: { ...buildconfigJson, ...scriptArgs },
 	});
 
 	await builder.build();

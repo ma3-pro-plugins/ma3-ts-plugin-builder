@@ -1,4 +1,4 @@
-import { BuildConfig, ScriptArgs } from "@app/types/module.interfaces";
+import { BuildConfig } from "@app/types/module.interfaces";
 import log from "@app/utils/logger";
 import archiver from "archiver";
 import fse from "fs-extra";
@@ -8,33 +8,35 @@ import * as path from "path";
 import { BaseConfig } from "./config";
 import { createReadMeContent } from "./readmeGenerator";
 
-export async function createMultiVersionZip(baseConfig: BaseConfig, buildConfig: BuildConfig, scriptArgs: ScriptArgs) {
+export async function createMultiVersionZip(baseConfig: BaseConfig, buildConfig: BuildConfig) {
 	const { distPath } = baseConfig;
 
 	process.chdir(distPath);
 
 	await createReadMePdf(baseConfig, buildConfig);
-	await archive(baseConfig, buildConfig, scriptArgs);
+	await archive(baseConfig);
 
-	process.chdir(scriptArgs.pluginFolderPath);
+	process.chdir(buildConfig.pluginFolderPath);
 }
 
 async function createReadMePdf(baseConfig: BaseConfig, buildConfig: BuildConfig) {
-	const readMeContent = await createReadMeContent(baseConfig, buildConfig);
-	const readMeMarkdownFileName = "./README.md";
-	fs.writeFileSync(readMeMarkdownFileName, readMeContent, {
-		encoding: `utf8`,
-	});
-	const pdf = await mdToPdf({ path: readMeMarkdownFileName }).catch(console.error);
+	if (buildConfig.readMeTemplatePath !== undefined) {
+		const readMeContent = await createReadMeContent(baseConfig, buildConfig);
+		const readMeMarkdownFileName = "./README.md";
+		fs.writeFileSync(readMeMarkdownFileName, readMeContent, {
+			encoding: `utf8`,
+		});
+		const pdf = await mdToPdf({ path: readMeMarkdownFileName }).catch(console.error);
 
-	const readMePdfFileName = "README.pdf";
-	if (pdf) {
-		fs.writeFileSync(readMePdfFileName, pdf.content);
-		fse.unlinkSync(readMeMarkdownFileName);
+		const readMePdfFileName = "README.pdf";
+		if (pdf) {
+			fs.writeFileSync(readMePdfFileName, pdf.content);
+			fse.unlinkSync(readMeMarkdownFileName);
+		}
 	}
 }
 
-async function archive(baseConfig: BaseConfig, buildConfig: BuildConfig, scriptArgs: ScriptArgs) {
+async function archive(baseConfig: BaseConfig) {
 	const { distRoot, distPath, pluginFSNameWithAuthorAndVersion } = baseConfig;
 	return new Promise<void>((resolve, reject) => {
 		// ARCHIVE
