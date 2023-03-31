@@ -2,7 +2,7 @@
 	"name": "@ma3-pro-plugins/ma3-ts-plugin-build",
 	"displayName": "grandMA3 Typescript Plugin Build Script",
 	"description": "grandMA3 Typescript plugin build script",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"main": "dist/cli/cli.js",
 	"bin": {
 		"ma3-ts-plugin-build": "dist/cli/cli.js",
