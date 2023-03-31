@@ -1,4 +1,4 @@
-import { MAConfig, ScriptArgs } from "@app/types/module.interfaces";
+import { BuildConfig, MAConfig } from "@app/types/module.interfaces";
 import log from "@app/utils/logger";
 import * as path from "path";
 
@@ -7,7 +7,7 @@ function createFSName(...parts: string[]) {
 	return parts.join(" - ");
 }
 
-export function createBaseConfig(maconfig: MAConfig, scriptArgs: ScriptArgs) {
+export function createBaseConfig(maconfig: MAConfig, buildConfig: BuildConfig) {
 	function assertThrow(condition: any, msg: string) {
 		if (!condition) {
 			log.error(msg);
@@ -20,11 +20,11 @@ export function createBaseConfig(maconfig: MAConfig, scriptArgs: ScriptArgs) {
 	const versionSuffix = `v${maconfig.pluginVersion}`;
 	const author = maconfig.author;
 	const authorX = author.replace(" ", "");
-	const pluginFolderNameWithVersion = scriptArgs.isDev
+	const pluginFolderNameWithVersion = buildConfig.isDev
 		? `${maPluginName}`
 		: createFSName(maPluginName, versionSuffix);
 	const pluginFSNameWithAuthorAndVersion = createFSName(author, maPluginName, versionSuffix);
-	const distRoot = path.join(process.cwd(), `../../`, "dist");
+	const distRoot = path.join(process.cwd(), buildConfig.distPath ?? "dist");
 	const distPath = path.join(distRoot, pluginFSNameWithAuthorAndVersion);
 
 	return {
@@ -32,11 +32,11 @@ export function createBaseConfig(maconfig: MAConfig, scriptArgs: ScriptArgs) {
 		authorX,
 		distRoot,
 		distPath,
-		isDev: scriptArgs.isDev,
+		isDev: buildConfig.isDev,
 		maPluginsInstallPath,
 		pluginVersion,
-		pluginsPath: scriptArgs.isDev ? path.join(maPluginsInstallPath) : path.join(distPath, MA_USB_PLUGINS_PATH),
-		pluginFolderPath: scriptArgs.pluginFolderPath,
+		pluginsPath: buildConfig.isDev ? path.join(maPluginsInstallPath) : path.join(distPath, MA_USB_PLUGINS_PATH),
+		pluginFolderPath: buildConfig.pluginFolderPath,
 		pluginFolderNameWithVersion,
 		pluginFSNameWithAuthorAndVersion,
 		pluginName: maPluginName,

@@ -24,7 +24,7 @@ export type MAConfig = {
 
 export type BuildConfig = {
 	tstlPluginPath: string;
-	/** Absolute dist path */
+	/** Relative to package.json */
 	distPath: string;
 	readMeTemplatePath?: string;
 	pluginFolderPath: string;
